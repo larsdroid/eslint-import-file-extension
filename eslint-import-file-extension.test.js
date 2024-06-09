@@ -1,14 +1,14 @@
 const {RuleTester} = require("eslint");
-const fooBarRule = require("./enforce-file-extension");
-//import fooBarRule from './enforce-file-extension.js'
+const fsFileExtension = require("./js-file-extension.js");
+//import fsFileExtension from './enforce-file-extension.js'
 
 const ruleTester = new RuleTester({
     languageOptions: { ecmaVersion: 2015 }
 });
 
 ruleTester.run(
-    "enforce-file-extension", // rule name
-    fooBarRule,
+    "js-file-extension", // rule name
+    fsFileExtension,
     {
         valid: [
             {
