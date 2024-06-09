@@ -3,6 +3,7 @@
     "version": "0.0.3",
     "description": "ESLint plugin: enforce that a local file import should end with `.js`.",
     "main": "eslint-import-file-extension.js",
+    "type": "module",
     "keywords": [
         "eslint",
         "eslintplugin",
@@ -11,12 +12,14 @@
     "author": "Lars Willemsens",
     "license": "ISC",
     "devDependencies": {
+        "dprint": "^0.46.2",
         "eslint": "^9.4.0"
     },
     "peerDependencies": {
         "eslint": ">=9.0.0"
     },
     "scripts": {
+        "dprint": "dprint check \"**/*.{js,json}\"",
         "test": "node eslint-import-file-extension.test.js"
     }
 }

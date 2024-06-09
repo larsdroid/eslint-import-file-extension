@@ -1,7 +1,7 @@
-const fsFileExtension = require("./js-file-extension.js");
-const plugin = {
+import fsFileExtension from './js-file-extension.js'
+
+export default {
     rules: {
-        "js-file-extension": fsFileExtension
+        'js-file-extension': fsFileExtension
     }
-};
-module.exports = plugin;
+}
