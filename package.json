@@ -1,6 +1,6 @@
 {
     "name": "@larsdroid/eslint-import-file-extension",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "ESLint plugin: enforce that a local file import should end with `.js`.",
     "main": "eslint-import-file-extension.js",
     "type": "module",
