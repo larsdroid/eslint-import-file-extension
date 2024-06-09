@@ -1,4 +1,5 @@
 module.exports = {
+    name: 'js-file-extension',
     meta: {
         type: "problem",
         docs: {
