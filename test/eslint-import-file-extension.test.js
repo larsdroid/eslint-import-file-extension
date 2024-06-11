@@ -1,5 +1,5 @@
 import { RuleTester } from 'eslint'
-import fsFileExtension from './js-file-extension.js'
+import fsFileExtension from '../src/js-file-extension.js'
 
 const ruleTester = new RuleTester({
     languageOptions: { ecmaVersion: 2015 }
