@@ -34,9 +34,9 @@ ruleTester.run(
                     {
                         message: 'Files should be imported with the `.js` file extension. Unexpected value: ./apple.',
                         line: 1,
-                        column: 20,
+                        column: 21,
                         endLine: 1,
-                        endColumn: 27
+                        endColumn: 26
                     }
                 ]
             },
@@ -62,9 +62,9 @@ ruleTester.run(
                     {
                         message: 'Files should be imported with the `.js` file extension. Unexpected value: ./path/apple.ts.',
                         line: 1,
-                        column: 20,
+                        column: 21,
                         endLine: 1,
-                        endColumn: 35
+                        endColumn: 34
                     }
                 ]
             }

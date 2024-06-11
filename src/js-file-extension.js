@@ -25,19 +25,19 @@ export default {
                         correctedImport = quoteStyle + node.source.value + '.js' + quoteStyle
                     }
                     context.report({
-                        // node: node.source,   // Passing the node here makes Webstorm highlight the _entire_ node without looking at start/end.
+                        node: node.source,
                         loc: {
                             start: {
                                 line: node.source.loc.start.line,
-                                column: node.source.loc.start.column + 1
+                                column: node.source.loc.start.column + 2
                             },
                             end: {
                                 line: node.source.loc.end.line,
-                                column: node.source.loc.end.column - 1,
+                                column: node.source.loc.end.column - 2,
                             }
                         },
                         message:
-                            'Files should be imported with the `.js` file extension. Unexpected value: {{ theImport }}.',
+                            'Files should be imported with the `.js` file extension. Unexpected value: {{theImport}}.',
                         data: {
                             theImport: node.source.value
                         },
