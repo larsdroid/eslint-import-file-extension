@@ -11,11 +11,19 @@ export default {
         return {
             // https://eslint.org/docs/latest/extend/custom-rule-tutorial
             ImportDeclaration(node) {
-                const relativePath = /^\.?\.?\//.test(node.source.value)
-                // TODO: Next and Svelte etc. imports?
-                if (relativePath && !node.source.value.endsWith('.js')) {
+                const isRelativePath = /^\.?\.?\//.test(node.source.value)
+                const fileExtensionArray = /\.([a-z0-9]+)?$/.exec(node.source.value)
+                const fileExtension = fileExtensionArray?.at(1)
+                const fileExtensionIndex = fileExtensionArray?.index
+
+                if (isRelativePath && (!fileExtension || fileExtension === 'ts')) {
                     const quoteStyle = node.source.raw[0]
-                    const correctedImport = quoteStyle + node.source.value + '.js' + quoteStyle
+                    let correctedImport
+                    if (fileExtension) {
+                        correctedImport = quoteStyle + node.source.value.substring(0, fileExtensionIndex) + '.js' + quoteStyle
+                    } else {
+                        correctedImport = quoteStyle + node.source.value + '.js' + quoteStyle
+                    }
                     context.report({
                         node,
                         message:

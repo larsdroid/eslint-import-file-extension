@@ -21,6 +21,9 @@ ruleTester.run(
             },
             {
                 code: 'import Apple from "somemodule/file.css"'
+            },
+            {
+                code: 'import Apple from "./style/mystyle.css"'
             }
         ],
         invalid: [
@@ -42,6 +45,11 @@ ruleTester.run(
             {
                 code: 'import Apple from "/apple"',
                 output: 'import Apple from "/apple.js"',
+                errors: 1
+            },
+            {
+                code: 'import Apple from "./path/apple.ts"',
+                output: 'import Apple from "./path/apple.js"',
                 errors: 1
             }
         ]
