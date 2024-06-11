@@ -25,7 +25,7 @@ export default {
                         correctedImport = quoteStyle + node.source.value + '.js' + quoteStyle
                     }
                     context.report({
-                        node: node.source,
+                        // node: node.source,   // Passing the node here makes Webstorm highlight the _entire_ node without looking at start/end.
                         loc: {
                             start: {
                                 line: node.source.loc.start.line,
