@@ -9,7 +9,6 @@ export default {
     },
     create(context) {
         return {
-            // https://eslint.org/docs/latest/extend/custom-rule-tutorial
             ImportDeclaration(node) {
                 const isRelativePath = /^\.?\.?\//.test(node.source.value)
                 const fileExtensionArray = /\.([a-z0-9]+)?$/.exec(node.source.value)
@@ -25,19 +24,19 @@ export default {
                         correctedImport = quoteStyle + node.source.value + '.js' + quoteStyle
                     }
                     context.report({
-                        // node: node.source,   // Passing the node here makes Webstorm highlight the _entire_ node without looking at start/end.
+                        node: node.source,
                         loc: {
                             start: {
                                 line: node.source.loc.start.line,
-                                column: node.source.loc.start.column + 2
+                                column: node.source.loc.start.column + 1
                             },
                             end: {
                                 line: node.source.loc.end.line,
-                                column: node.source.loc.end.column - 2,
+                                column: node.source.loc.end.column - 1,
                             }
                         },
                         message:
-                            'Files should be imported with the `.js` file extension. Unexpected value: {{theImport}}.',
+                            'Files should be imported with the `.js` file extension. Unexpected value: {{ theImport }}.',
                         data: {
                             theImport: node.source.value
                         },
