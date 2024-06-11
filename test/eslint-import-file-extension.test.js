@@ -30,7 +30,15 @@ ruleTester.run(
             {
                 code: 'import Apple from \'./apple\'',
                 output: 'import Apple from \'./apple.js\'',
-                errors: 1
+                errors: [
+                    {
+                        message: 'Files should be imported with the `.js` file extension. Unexpected value: ./apple.',
+                        line: 1,
+                        column: 20,
+                        endLine: 1,
+                        endColumn: 27
+                    }
+                ]
             },
             {
                 code: 'import Apple from "./apple"',
@@ -50,7 +58,15 @@ ruleTester.run(
             {
                 code: 'import Apple from "./path/apple.ts"',
                 output: 'import Apple from "./path/apple.js"',
-                errors: 1
+                errors: [
+                    {
+                        message: 'Files should be imported with the `.js` file extension. Unexpected value: ./path/apple.ts.',
+                        line: 1,
+                        column: 20,
+                        endLine: 1,
+                        endColumn: 35
+                    }
+                ]
             }
         ]
     }

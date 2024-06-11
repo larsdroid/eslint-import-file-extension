@@ -25,7 +25,17 @@ export default {
                         correctedImport = quoteStyle + node.source.value + '.js' + quoteStyle
                     }
                     context.report({
-                        node,
+                        node: node.source,
+                        loc: {
+                            start: {
+                                line: node.source.loc.start.line,
+                                column: node.source.loc.start.column + 1
+                            },
+                            end: {
+                                line: node.source.loc.end.line,
+                                column: node.source.loc.end.column - 1,
+                            }
+                        },
                         message:
                             'Files should be imported with the `.js` file extension. Unexpected value: {{ theImport }}.',
                         data: {
