@@ -1,0 +1,35 @@
+name: Publish Node.js package
+
+on:
+  push:
+    tags:
+      - 'version-*.*.*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@larsdroid'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check code style
+        run: npm run dprint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
