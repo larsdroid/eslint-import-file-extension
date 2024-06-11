@@ -60,7 +60,8 @@ ruleTester.run(
                 output: 'import Apple from "./path/apple.js"',
                 errors: [
                     {
-                        message: 'Files should be imported with the `.js` file extension. Unexpected value: ./path/apple.ts.',
+                        message:
+                            'Files should be imported with the `.js` file extension. Unexpected value: ./path/apple.ts.',
                         line: 1,
                         column: 20,
                         endLine: 1,

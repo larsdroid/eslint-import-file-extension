@@ -19,7 +19,8 @@ export default {
                     const quoteStyle = node.source.raw[0]
                     let correctedImport
                     if (fileExtension) {
-                        correctedImport = quoteStyle + node.source.value.substring(0, fileExtensionIndex) + '.js' + quoteStyle
+                        correctedImport = quoteStyle + node.source.value.substring(0, fileExtensionIndex) + '.js'
+                            + quoteStyle
                     } else {
                         correctedImport = quoteStyle + node.source.value + '.js' + quoteStyle
                     }
@@ -32,7 +33,7 @@ export default {
                             },
                             end: {
                                 line: node.source.loc.end.line,
-                                column: node.source.loc.end.column - 1,
+                                column: node.source.loc.end.column - 1
                             }
                         },
                         message:
