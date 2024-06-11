@@ -1,6 +1,6 @@
 # eslint-import-file-extension
 
-[![github actions][actions-image]][actions-url]
+![github actions](https://github.com/larsdroid/eslint-import-file-extension/actions/workflows/publish.yml/badge.svg)
 [![npm](https://img.shields.io/npm/v/@larsdroid/eslint-import-file-extension)](https://www.npmjs.com/package/@larsdroid/eslint-import-file-extension)
 [![npm downloads](https://img.shields.io/npm/dt/@larsdroid/eslint-import-file-extension.svg?maxAge=2592000)](https://www.npmtrends.com/@larsdroid/eslint-import-file-extension)
 

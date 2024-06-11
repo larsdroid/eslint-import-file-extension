@@ -1,4 +1,4 @@
-name: Publish Node.js package
+name: Check and publish
 
 on:
   push:
