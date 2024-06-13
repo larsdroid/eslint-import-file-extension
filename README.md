@@ -18,7 +18,7 @@ is a summary on why TypeScript works the way it does.
 This is an example of an invalid import:
 
 ```typescript
-import something from 'myfile.ts'
+import something from './myfile.ts'
 ```
 
 After the TypeScript compiler has transpiled this statement, it'll still reference `myfile.ts`, which
@@ -29,7 +29,7 @@ TypeScript compiler.
 The original source code should look like this:
 
 ```typescript
-import something from 'myfile.js'
+import something from './myfile.js'
 ```
 
 Now, we can be confident that, even after TS transpilation, our code will work.
@@ -47,6 +47,7 @@ npm i --save-dev @larsdroid/eslint-import-file-extension
 ```
 
 Enable the plugin from `eslint.config.js`:
+
 ```javascript
 import eslintPluginImportFileExtension from '@larsdroid/eslint-import-file-extension'
 
